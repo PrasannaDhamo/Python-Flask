@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title> Flames online</title>
+	<style>
+    
+    body {
+        background-color: #F3EBF6;
+        font-family: 'Ubuntu', sans-serif;
+    }
+    
+    .main {
+        background-color: #FFFFFF;
+        width: 400px;
+        height: 400px;
+        margin: 7em auto;
+        border-radius: 1.5em;
+        margin-bottom: 95px;
+        margin-top: 95px;
+        box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+    }
+    
+    .sign {
+        padding-top: 40px;
+        color: #8C55AA;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: bold;
+        font-size: 23px;
+    }
+    
+    .name1 {
+    width: 76%;
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgba(136, 126, 126, 0.04);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-bottom: 50px;
+    margin-left: 46px;
+    text-align: center;
+    margin-bottom: 27px;
+    font-family: 'Ubuntu', sans-serif;
+    }
+    
+    form.form1 {
+        padding-top: 40px;
+    }
+    
+    .name2 {
+    width: 76%;
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgba(136, 126, 126, 0.04);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-bottom: 50px;
+    margin-left: 46px;
+    text-align: center;
+    margin-bottom: 27px;
+    font-family: 'Ubuntu', sans-serif;
+    }
+    
+   
+    .name1:focus, .name2:focus {
+        border: 2px solid rgba(0, 0, 0, 0.18) !important;
+        
+    }
+    
+    .submit {
+      cursor: pointer;
+        border-radius: 5em;
+        color: #fff;
+        background: linear-gradient(to right, #9C27B0, #E040FB);
+        border: 0;
+        margin-top: 15px;
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        font-family: 'Ubuntu', sans-serif;
+        margin-left: 35%;
+        font-size: 13px;
+        box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+    }
+    
+    button {
+        text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+        color: #E1BEE7;
+        text-decoration: none
+    }
+    
+    @media (max-width: 600px) {
+        .main {
+            border-radius: 0px;
+        }
+    }
+		
+		.submit {
+			background-color: white; 
+			color: black; 
+			border: 2px solid #ece0df;
+		}
+
+		.submit:hover {
+			box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);   /*shadow */
+			background-color: #dbb8b5;
+			color: white;
+		}
+
+        footer
+        {
+            margin-top: 0px;
+            text-align: center;
+            border-top-width: 10px;
+            background: #2c5aaf;
+            padding-top: 25px;
+            padding-bottom: 25px;
+        }
+		</style>
+  </head>
+  <body>
+    <div class="main">
+     <p class="sign" align="center">Flames..❤</p>
+        <form action = "/relation" class="form1" method="POST">
+            <input class="name1" name="name1" type="text" id="name1_text" align="center" placeholder="Enter first name" required>
+            <input class="name2" name="name2" type="text" id="name2_text" align="center" placeholder="Enter second name" required>
+            <button onclick="location.href = 'www.yoursite.com'; class="submit" align="center">Submit</button>
+        </form>
+    </div>
+    </body>
+ <footer>
+    <div class="footer-copyright text-center py-3">© Developed by:
+        <a href="https://prasannasales.weebly.com/" style = "color:rgb(255, 255, 255); font-size: 18px;"  target="_blank"> Prasanna D</a>
+      </div>
+    </footer>
+</html>

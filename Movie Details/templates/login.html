@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+	<title>Login</title>
+
+	<style>
+		body {
+			font-family: 'Poppins', sans-serif;
+    		font-size: 100%;
+			background-image: url(static/img/2.jpg);
+    		background-size: cover;
+    		-webkit-background-size: cover;
+    		-moz-background-size: cover;
+    		-o-background-size: cover;
+    		-ms-background-size: cover;
+    		background-attachment: fixed;
+			text-align: center;	
+		}
+	</style>
+	<!-- //Meta-Tags -->
+	<!-- Stylesheets -->
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/font-awesome.css') }}">
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+	<!--// Stylesheets -->
+	<!--fonts-->
+	<!-- title -->
+	<!-- body -->
+	<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=devanagari,latin-ext" rel="stylesheet">
+	<!--//fonts-->
+</head>
+
+<body>
+	<h1>Login Form</h1>
+	<div class="w3ls-login box box--big">
+		<!-- form starts here -->
+		<form action="/lg" method="post">
+			<div class="agile-field-txt">
+				<label> Username </label>
+				<input type="text" name="name" placeholder="Enter your username " required="" />
+			</div>
+			<div class="agile-field-txt">
+				<label> Password </label>
+				<input type="password" name="password" placeholder="Enter your password " required="" id="myInput" />
+				<div class="agile_label">
+					<input id="check3" name="check3" type="checkbox" value="show password" onclick="myFunction()">
+					<label class="check" for="check3">Show password</label>
+				</div>
+			</div>
+			<!-- script for show password -->
+			<script>
+				function myFunction() {
+					var x = document.getElementById("myInput");
+					if (x.type === "password") {
+						x.type = "text";
+					} else {
+						x.type = "password";
+					}
+				}
+			</script>
+			<!-- //script ends here -->
+			<div class="w3ls-bot">
+				<div class="form-end">
+					<input type="submit" value="login">
+				</div>
+				<div class="reg">
+					<p>New User?
+						<a href="{{ url_for('registration') }}">Sign up</a>
+					</p>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</form>
+	</div>
+	<!-- //form ends here -->
+	<!--copyright-->
+	<div class="copy-wthree">
+		<p>© 2020 Login Form | Design by
+			<a href="http://prasannasales.weebly.com/" target="_blank">Prasanna_D</a>
+		</p>
+	</div>
+	<!--//copyright-->
+</body>
+
+</html>

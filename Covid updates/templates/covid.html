@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Covid-19 Updates</title>
+  <style>
+    		.submit {
+			cursor: pointer;
+			border-radius: 5em;
+			color: #fff;
+			background: linear-gradient(to right, #f1f1f1, #d8bb16);
+			padding-left: 40px;
+			padding-right: 40px;
+			padding-bottom: 10px;
+			padding-top: 10px;
+			font-family: 'Ubuntu', sans-serif;
+			font-size: 13px;
+			box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+			}
+    
+		button {
+			text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+			color: #E1BEE7;
+			text-decoration: none
+			}
+		.submit {
+			background-color: white; 
+			color: black; 
+			border: 0px solid #ece0df;
+			}
+
+		.submit:hover {
+			box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);   /*shadow */
+			background-color: #dbb8b5;
+			color: white;
+			}
+    .detail {
+      background-color: #f5f5f5;
+      height: 350px;
+      padding-left: 20px;
+      padding-top: 20px;
+      margin-left: 100px;
+      margin-top: 20px;
+      margin-right: 100px;
+      margin-bottom: 20px;
+      box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+			}
+      .sign2 {
+            color: rgb(3, 0, 0);
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 20px;
+            text-align: center;
+        }
+  </style>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div>
+  <nav style="background: #337ab7; color: white;">
+    <h1 style="margin-top:0px; padding-bottom: 10px; padding-top: 10px; padding-left: 20px">  Covid-19 Updates
+      <button onclick="location.href='{{ url_for( 'login')}}';" class = "submit" style = "float: right; margin-right: 25px;">Login</button>
+    </h1>
+  </nav>
+</div>
+    <div class="detail">
+	<h1>World</h1>
+        <h3>Coronavirus Cases : {{tot_cases}}</h3>
+        <h3>Deaths : {{tot_deaths}}</h3>
+        <h3>Recovered : {{tot_recovered}}</h3>
+        <h3>Active Cases : {{active_cases}}</h3>
+        <h3>Closed Cases : {{closed_cases}}</h3>
+    </div>
+	<div class="detail">
+	<h1>India</h1>
+        <h3>Coronavirus Cases : {{tot_cases1}}</h3>
+        <h3>Deaths : {{tot_deaths1}}</h3>
+        <h3>Recovered : {{tot_recovered1}}</h3>
+        <h3>Active Cases : {{active_cases1}}</h3>
+    </div>
+    <div>
+      <p class = "sign2">© 2020 Covid Updates | Design by
+        <a href="http://prasannasales.weebly.com/" target="_blank">Prasanna_D</a>
+      </p>
+    </div>
+</body>
+
+</html>
