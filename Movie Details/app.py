@@ -132,5 +132,29 @@ def covid():
     
     return render_template('covid.html',tot_cases=tot_cases, tot_deaths=tot_deaths, tot_recovered=tot_recovered, active_cases= active_cases, closed_cases=closed_cases, tot_cases1=tot_cases1, tot_deaths1=tot_deaths1, tot_recovered1=tot_recovered1, active_cases1= active_cases1)
 
+@app.route('/horoscope', methods=['GET', 'POST'])
+def horoscope():
+    if request.method == "POST":
+        zodiac_sign = request.form["sign"]
+        print(zodiac_sign)
+        day = request.form["day"]
+        if day == "today":
+            day = "daily-" + day
+        if day == "tomorrow":
+            day = "daily-" + day
+        if day == "yesterday":
+            day = "daily-" + day
+
+        url = (
+        "https://www.horoscope.com/us/horoscopes/general/"
+        f"horoscope-general-{day}.aspx?sign={zodiac_sign}"
+        )
+        print(url)
+        soup = BeautifulSoup(requests.get(url).content, "html.parser")
+        data = (soup.find("div", class_="main-horoscope").p.text)
+        return render_template('horoscope.html', data = data)
+    else:
+        return render_template('horoscope.html')
+
 if __name__ == "__main__":
     app.run(debug=True)

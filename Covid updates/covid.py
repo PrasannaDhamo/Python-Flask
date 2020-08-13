@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 
-@app.route('/covid',methods=['POST','GET'])
+@app.route('/',methods=['POST','GET'])
 def covid():
     world_url= str("https://www.worldometers.info/coronavirus")
     india_url = str("https://www.worldometers.info/coronavirus/country/india/")
