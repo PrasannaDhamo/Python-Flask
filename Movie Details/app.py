@@ -1,8 +1,9 @@
-from flask import Flask, request, render_template, url_for, redirect
+from flask import Flask, request, render_template, url_for, redirect, abort
 from pymongo import MongoClient
 import requests
 import json
 from bs4 import BeautifulSoup
+import urllib.request
 
 app = Flask(__name__)
 
@@ -35,14 +36,9 @@ def lg():
         validate = cl.find_one({"username": request.form['name'], "password": request.form['password']})
     
         if validate == None:
-            return redirect(url_for('invalid'))
+            return render_template('login.html')
         else:
             return redirect(url_for('movie', name = request.form['name']))
-
-
-@app.route('/success/<name>')
-def success(name):
-    return "Welcome %s....!" %name
 
 @app.route('/invalid')
 def invalid():
@@ -90,10 +86,11 @@ def details(name):
     genre_list = (movie_jsonResponse['genres'])
     movie_company = (movie_jsonResponse['companies'])
     imdb_rating = (movie_jsonResponse['imDbRating'])
+    download = ("https://www.google.com/search?q=index+of+{}".format(title_name))
     #movie_budget = (title_jsonResponse['boxOffice'][0]['budget'])
     #movie_worldgross = (title_jsonResponse['boxOffice'][0]['cumulativeWorldwideGross'])
     
-    return render_template("movie_details.html", tname = title_name, dname = director_name, mimg = movie_image, plot = movie_plot, rdate = Release_Date, rtime = movie_runtime, glist = genre_list, cname = star_name, wname = writer_name, mov_company = movie_company, imdb_r = imdb_rating)
+    return render_template("movie_details.html", tname = title_name, dname = director_name, mimg = movie_image, plot = movie_plot, rdate = Release_Date, rtime = movie_runtime, glist = genre_list, cname = star_name, wname = writer_name, mov_company = movie_company, imdb_r = imdb_rating, download = download)
 
 
 @app.route('/covid',methods=['POST','GET'])
@@ -155,6 +152,39 @@ def horoscope():
         return render_template('horoscope.html', data = data)
     else:
         return render_template('horoscope.html')
+
+
+def tocelcius(temp):
+    return str(round(float(temp) - 273.16,2))
+
+@app.route('/weather',methods=['POST','GET'])
+def weather():
+    if request.method == 'POST':
+        city = request.form['city']
+    else:
+        #for default name chennai
+        city = 'chennai'
+
+    #https://openweathermap.org/api  --> API key for weather
+    try:
+        source = urllib.request.urlopen('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=48a90ac42caa09f90dcaeee4096b9e53').read()
+    except:
+        return abort(404)
+    # converting json data to dictionary
+
+    list_of_data = json.loads(source)
+    # data for variable list_of_data
+    data = {
+        "country_code": str(list_of_data['sys']['country']),
+        "coordinate": str(list_of_data['coord']['lon']) + ' ' + str(list_of_data['coord']['lat']),
+        "temp": str(list_of_data['main']['temp']) + 'k',
+        "temp_cel": tocelcius(list_of_data['main']['temp']) + 'C',
+        "pressure": str(list_of_data['main']['pressure']),
+        "humidity": str(list_of_data['main']['humidity']),
+        "cityname":str(city),
+    }
+    return render_template('weather.html',data=data)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

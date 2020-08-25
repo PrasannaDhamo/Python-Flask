@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html style="font-size: 16px;">
   <head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Movie Details</title>
 	<style>
 		body {
@@ -91,6 +92,17 @@
 			background-color: #dbb8b5;
 			color: white;
 		}
+		.btn {
+  			background-color: DodgerBlue;
+  			border: none;
+  			color: white;
+  			padding: 12px 30px;
+  			cursor: pointer;
+  			font-size: 20px;
+		}
+		.btn:hover {
+			background-color: RoyalBlue;
+		}
 	</style>
   </head>
   <body>
@@ -129,6 +141,9 @@
 		
 		<h4>IMDb Rating</h4>
         <p class = "sign">{{imdb_r}}</p>
+		
+        <p class = "sign">
+		<button onclick="location.href='{{download}}';" class="btn"><i class="fa fa-download"></i> Download</button></p>
       </div>
 	</section>
 	<div>

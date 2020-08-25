@@ -29,7 +29,7 @@ def upload():
         age = Image.open(x)
         EXIF_data = age._getexif()
         if EXIF_data == None:
-            print("No Data Found for " + x)
+            print("No Data Found for " + str(x))
             age.close()
         else:
             dt = EXIF_data[306]
@@ -38,7 +38,7 @@ def upload():
             dates.add(dates_dash)
             rname = dates_dash+"("+ str(i) +")"+'.jpg'
             destination = "/".join([path, rname])
-            x.save(destination)
+            age.save(destination)
             if not os.path.isdir("images/" + dates_dash):
                 os.mkdir("images/" + dates_dash)
                 
